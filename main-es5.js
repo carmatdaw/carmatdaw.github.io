@@ -28,7 +28,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("  <mat-sidenav-container class=\"example-container\" >\n  <mat-sidenav style=\"margin:10px\" #sidenav mode=\"side\" [(opened)]=\"opened\" (opened)=\"events.push('open!')\"\n                (closed)=\"events.push('close!')\">\n     <p> <mat-form-field class=\"example-full-width\">\n          <input matInput placeholder=\"Output Image Width\" value=\"1000\" #outputImageWidth>\n        </mat-form-field>\n    </p>\n    <p>\n      <mat-slide-toggle #invertBackground >Invert</mat-slide-toggle>\n  </p>\n  <p>\n        <mat-slider #lineThickness min=\"1\" max=\"10\" step=\"1\" value=\"3\"></mat-slider>Line Thickness\n    </p>\n    <p>\n      Min Cell Size: <mat-slider #minCellSize min=\"3\" max=\"100\" step=\"1\" value=\"3\"></mat-slider>\n    </p>\n    <p>\n        Cell Scale: <mat-slider #cellScale min=\"-8\" max=\"8\" step=\"1\" value=\"0\"></mat-slider>\n    </p>\n    <p>\n        <button mat-raised-button color=\"primary\" (click)=\"onRegenerateClicked()\">Regenerate</button>\n    </p>\n    <p>\n      <input type=\"file\" accept=\"image/png, image/jpeg\" (change)=\"onImageChange($event)\">\n    </p>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <canvas #myCanvas width=\"1000\" height=\"1000\" (click)=\"onToggleSideNav()\"></canvas>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("  <mat-sidenav-container class=\"example-container\" >\n  <mat-sidenav #sidenav mode=\"side\" [(opened)]=\"opened\" (opened)=\"events.push('open!')\"\n                (closed)=\"events.push('close!')\">\n  <div class=\"margin-div\">\n     <p> <mat-form-field class=\"example-full-width\">\n          <input matInput placeholder=\"Output Image Width\" value=\"1000\" #outputImageWidth>\n        </mat-form-field>\n    </p>\n    <p>\n      <mat-form-field #colorScheme>\n        <mat-label>Color Scheme</mat-label>\n        <select matNativeControl [(ngModel)]=\"selectedColorScheme\">\n          <option value=\"black-white\">Black on White</option>\n          <option value=\"white-black\">White on Black</option>\n          <option value=\"sepia\">Sepia</option>\n          <option value=\"sepia-inverse\">Sepia Inverse</option>\n          <option value=\"cool-grey\">Cool Grey</option>\n          <option value=\"cool-grey-inverse\">Cool Grey Inverse</option>\n        </select>\n      </mat-form-field>      \n    </p>\n  <p>\n        <mat-slider #lineThickness min=\"1\" max=\"20\" step=\"1\" value=\"3\"></mat-slider>Line Thickness\n    </p>\n    <p>\n      Min Cell Size: <mat-slider #minCellSize min=\"3\" max=\"100\" step=\"1\" value=\"3\"></mat-slider>\n    </p>\n    <p>\n        Cell Scale: <mat-slider #cellScale min=\"-8\" max=\"8\" step=\"1\" value=\"-3\"></mat-slider>\n    </p>\n    <p>\n        <button mat-raised-button color=\"primary\" (click)=\"onRegenerateClicked()\">Regenerate</button>\n    </p>\n    <p>\n      <button mat-raised-button color=\"primary\" (click)=\"onChoosePicClicked()\">Choose Picture...</button>\n  </p>\n  <p>\n      <input #chooseFileInput style=\"display:none\" type=\"file\" accept=\"image/png, image/jpeg\" (change)=\"onImageChange($event)\">\n    </p>\n    </div>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <img #workingGif style=\"display:none\" src=\"./assets/images/working2.gif\">\n    <canvas #myCanvas width=\"1000\" height=\"1000\" (click)=\"onToggleSideNav()\"></canvas>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n\n\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/button/button.component.html": 
@@ -361,7 +361,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".container {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: nowrap;\r\n    height:100%;\r\n    margin: 0 0 0 0;\r\n}\r\n  \r\n.item-settings {\r\n    flex: 1 200px;\r\n    height: 100%;\r\n    flex-shrink: 0;\r\n    background-color: lightgray;\r\n}\r\n  \r\n#testSlider {\r\n    width: 100%;\r\n}\r\n  \r\n.testSlider {\r\n    width: 100%;\r\n}\r\n  \r\n.divider {\r\n    background-color: grey;\r\n    flex: 1 5px;\r\n    flex-shrink: 0;\r\n    flex-grow: 0;\r\n\r\n}\r\n  \r\n.item-view {\r\n    margin-left: 10px;\r\n    flex: 1 auto;\r\n    height: 100%;\r\n}\r\n  \r\n.example-container {\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n  \r\n.example-events {\r\n    width: 300px;\r\n    height: 200px;\r\n    overflow: auto;\r\n    border: 1px solid #555;\r\n  }\r\n  \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGlCQUFpQjtJQUNqQixXQUFXO0lBQ1gsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGFBQWE7SUFDYixZQUFZO0lBQ1osY0FBYztJQUNkLDJCQUEyQjtBQUMvQjs7QUFFQTtJQUNJLFdBQVc7QUFDZjs7QUFFQTtJQUNJLFdBQVc7QUFDZjs7QUFFQTtJQUNJLHNCQUFzQjtJQUN0QixXQUFXO0lBQ1gsY0FBYztJQUNkLFlBQVk7O0FBRWhCOztBQUNBO0lBQ0ksaUJBQWlCO0lBQ2pCLFlBQVk7SUFDWixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixTQUFTO0lBQ1QsT0FBTztJQUNQLFFBQVE7RUFDVjs7QUFFQTtJQUNFLFlBQVk7SUFDWixhQUFhO0lBQ2IsY0FBYztJQUNkLHNCQUFzQjtFQUN4QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICAgIGZsZXgtd3JhcDogbm93cmFwO1xyXG4gICAgaGVpZ2h0OjEwMCU7XHJcbiAgICBtYXJnaW46IDAgMCAwIDA7XHJcbn1cclxuICBcclxuLml0ZW0tc2V0dGluZ3Mge1xyXG4gICAgZmxleDogMSAyMDBweDtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGZsZXgtc2hyaW5rOiAwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRncmF5O1xyXG59XHJcblxyXG4jdGVzdFNsaWRlciB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnRlc3RTbGlkZXIge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5kaXZpZGVyIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGdyZXk7XHJcbiAgICBmbGV4OiAxIDVweDtcclxuICAgIGZsZXgtc2hyaW5rOiAwO1xyXG4gICAgZmxleC1ncm93OiAwO1xyXG5cclxufVxyXG4uaXRlbS12aWV3IHtcclxuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gICAgZmxleDogMSBhdXRvO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG4uZXhhbXBsZS1jb250YWluZXIge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHJpZ2h0OiAwO1xyXG4gIH1cclxuICBcclxuICAuZXhhbXBsZS1ldmVudHMge1xyXG4gICAgd2lkdGg6IDMwMHB4O1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIG92ZXJmbG93OiBhdXRvO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgIzU1NTtcclxuICB9XHJcbiAgIl19 */");
+            /* harmony default export */ __webpack_exports__["default"] = (".container {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: nowrap;\r\n    height:100%;\r\n    margin: 0px 0px 0px 0px;\r\n}\r\n\r\n.margin-div {\r\n    margin: 10px 10px 10px 10px;\r\n}\r\n\r\n.item-settings {\r\n    flex: 1 200px;\r\n    height: 100%;\r\n    flex-shrink: 0;\r\n    background-color: lightgray;\r\n}\r\n\r\n#testSlider {\r\n    width: 100%;\r\n}\r\n\r\n.testSlider {\r\n    width: 100%;\r\n}\r\n\r\n.divider {\r\n    background-color: grey;\r\n    flex: 1 5px;\r\n    flex-shrink: 0;\r\n    flex-grow: 0;\r\n\r\n}\r\n\r\n.item-view {\r\n    margin-left: 10px;\r\n    flex: 1 auto;\r\n    height: 100%;\r\n}\r\n\r\n.example-container {\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n  }\r\n\r\n.example-events {\r\n    width: 300px;\r\n    height: 200px;\r\n    overflow: auto;\r\n    border: 1px solid #555;\r\n  }\r\n  \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGlCQUFpQjtJQUNqQixXQUFXO0lBQ1gsdUJBQXVCO0FBQzNCOztBQUVBO0lBQ0ksMkJBQTJCO0FBQy9COztBQUVBO0lBQ0ksYUFBYTtJQUNiLFlBQVk7SUFDWixjQUFjO0lBQ2QsMkJBQTJCO0FBQy9COztBQUVBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksc0JBQXNCO0lBQ3RCLFdBQVc7SUFDWCxjQUFjO0lBQ2QsWUFBWTs7QUFFaEI7O0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIsWUFBWTtJQUNaLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsTUFBTTtJQUNOLFNBQVM7SUFDVCxPQUFPO0lBQ1AsUUFBUTtFQUNWOztBQUVBO0lBQ0UsWUFBWTtJQUNaLGFBQWE7SUFDYixjQUFjO0lBQ2Qsc0JBQXNCO0VBQ3hCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gICAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgICBoZWlnaHQ6MTAwJTtcclxuICAgIG1hcmdpbjogMHB4IDBweCAwcHggMHB4O1xyXG59XHJcblxyXG4ubWFyZ2luLWRpdiB7XHJcbiAgICBtYXJnaW46IDEwcHggMTBweCAxMHB4IDEwcHg7XHJcbn1cclxuXHJcbi5pdGVtLXNldHRpbmdzIHtcclxuICAgIGZsZXg6IDEgMjAwcHg7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBmbGV4LXNocmluazogMDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGxpZ2h0Z3JheTtcclxufVxyXG5cclxuI3Rlc3RTbGlkZXIge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi50ZXN0U2xpZGVyIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4uZGl2aWRlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmV5O1xyXG4gICAgZmxleDogMSA1cHg7XHJcbiAgICBmbGV4LXNocmluazogMDtcclxuICAgIGZsZXgtZ3JvdzogMDtcclxuXHJcbn1cclxuLml0ZW0tdmlldyB7XHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxuICAgIGZsZXg6IDEgYXV0bztcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuLmV4YW1wbGUtY29udGFpbmVyIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMDtcclxuICAgIGJvdHRvbTogMDtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICByaWdodDogMDtcclxuICB9XHJcbiAgXHJcbiAgLmV4YW1wbGUtZXZlbnRzIHtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIGhlaWdodDogMjAwcHg7XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICM1NTU7XHJcbiAgfVxyXG4gICJdfQ== */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -378,13 +378,15 @@
             var White = "#FFFFFF";
             var Black = "#000000";
             var Settings = /** @class */ (function () {
-                function Settings(width, height, lineThickness, cellScale, minCellSize, invertBackground) {
+                function Settings(width, height, lineThickness, cellScale, minCellSize, invertSampling, foregroundColor, backgroundColor) {
                     this.width = width;
                     this.height = height;
                     this.lineThickness = lineThickness;
                     this.cellScale = cellScale;
                     this.minCellSize = minCellSize;
-                    this.invertBackground = invertBackground;
+                    this.invertSampling = invertSampling;
+                    this.foregroundColor = foregroundColor;
+                    this.backgroundColor = backgroundColor;
                 }
                 return Settings;
             }());
@@ -487,7 +489,6 @@
                     this.slantAmount = .3;
                     this.minQuadArea = 30;
                     this.cellScale = 0;
-                    //this.quads.push(startQuad);
                     this.sampler = sampler;
                 }
                 Splinter.prototype.stroke = function (context, color) {
@@ -503,11 +504,14 @@
                 };
                 Splinter.prototype.splitQuad = function (q) {
                     var points = [];
+                    var area = q.area();
+                    if (area < this.minQuadArea) {
+                        return [q];
+                    }
                     var value = this.sampler.sampleQuad(q); // this gives us a greyscale number from 0 to 255 of how dark an area should be
                     var luminance = (value * value * value) / 50000; // since we're dealing with how dark a 2d area should be we'll square the value and dived by 255 to get a nice curve
-                    var area = q.area();
                     var scaledArea = area / this.cellScale;
-                    if (scaledArea < luminance || area < this.minQuadArea) {
+                    if (scaledArea < luminance) {
                         return [q];
                     }
                     var t1 = Math.random() * this.slantAmount + ((1 - this.slantAmount) / 2);
@@ -625,11 +629,11 @@
                 };
                 return Sampler;
             }());
-            function doIt(ctx, sampler, settings) {
-                fillCanvas(ctx, settings.width, settings.height, settings.invertBackground ? Black : White);
+            function Render(ctx, sampler, settings) {
+                fillCanvas(ctx, settings.width, settings.height, settings.backgroundColor);
                 var qw = settings.width / 3;
                 var qh = settings.height / 3;
-                sampler.invert = settings.invertBackground;
+                sampler.invert = settings.invertSampling;
                 var splinter = new Splinter(sampler);
                 { // full quad
                     var q1 = new Quad(new Point(10, 10), new Point(settings.width - 10, 10), new Point(settings.width - 10, settings.height - 10), new Point(10, settings.height - 10));
@@ -643,7 +647,7 @@
                 for (var i = 0; i < iterations; i++) {
                     splinter.splitAll();
                 }
-                splinter.stroke(ctx, settings.invertBackground ? White : Black);
+                splinter.stroke(ctx, settings.foregroundColor);
             }
             var AppComponent = /** @class */ (function () {
                 function AppComponent() {
@@ -653,29 +657,76 @@
                     this.height = 1000;
                     this.image = new Image;
                     this.Regenerate = "Regenerate";
+                    this.selectedColorScheme = "black-white";
                 }
                 AppComponent.prototype.generateImage = function () {
-                    var canvas = document.createElement('canvas');
-                    canvas.width = this.image.width;
-                    canvas.height = this.image.height;
-                    var ratio = this.image.height / this.image.width;
-                    var potentialWidth = parseFloat(this.outputImageWidth.nativeElement.value);
-                    if (!isNaN(potentialWidth) && potentialWidth > 100 && potentialWidth < 10000) {
-                        this.width = potentialWidth;
-                    }
-                    this.height = this.width * ratio;
-                    this.targetCanvas.nativeElement.width = this.width;
-                    this.targetCanvas.nativeElement.height = this.height;
-                    var context = canvas.getContext('2d');
-                    context.drawImage(this.image, 0, 0);
-                    var sampler = new Sampler(context, canvas.width, canvas.height, this.width, this.height);
-                    var ctx = this.targetCanvas.nativeElement.getContext('2d');
-                    ctx.lineWidth = (+this.lineThickness.value) / 10;
-                    var settings = new Settings(this.width, this.height, this.lineThickness.value, this.cellScale.value, this.minCellSize.value, this.invertBackground.checked);
-                    doIt(ctx, sampler, settings); //this.width,this.height,this.cellScale.value,this.minCellSize.value,this.invertBackground.checked);
+                    var _this = this;
+                    this.targetCanvas.nativeElement.style.display = "none";
+                    this.workingGif.nativeElement.style.display = "block";
+                    setTimeout(function () {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = _this.image.width;
+                        canvas.height = _this.image.height;
+                        var ratio = _this.image.height / _this.image.width;
+                        var potentialWidth = parseFloat(_this.outputImageWidth.nativeElement.value);
+                        if (!isNaN(potentialWidth) && potentialWidth > 100 && potentialWidth < 10000) {
+                            _this.width = potentialWidth;
+                        }
+                        _this.height = _this.width * ratio;
+                        _this.targetCanvas.nativeElement.width = _this.width;
+                        _this.targetCanvas.nativeElement.height = _this.height;
+                        var context = canvas.getContext('2d');
+                        context.drawImage(_this.image, 0, 0);
+                        var sampler = new Sampler(context, canvas.width, canvas.height, _this.width, _this.height);
+                        var ctx = _this.targetCanvas.nativeElement.getContext('2d');
+                        ctx.lineWidth = (+_this.lineThickness.value) / 10;
+                        var invert = false;
+                        var foregroundColor = Black;
+                        var backgroundColor = White;
+                        switch (_this.selectedColorScheme) {
+                            case "black-white": {
+                                break;
+                            }
+                            case "white-black": {
+                                invert = true;
+                                foregroundColor = White;
+                                backgroundColor = Black;
+                                break;
+                            }
+                            case "sepia": {
+                                foregroundColor = "#704214";
+                                backgroundColor = White;
+                                break;
+                            }
+                            case "sepia-inverse": {
+                                invert = true;
+                                foregroundColor = White;
+                                backgroundColor = "#704214";
+                                break;
+                            }
+                            case "cool-grey": {
+                                foregroundColor = "#000020";
+                                backgroundColor = "#E0E0FF";
+                                break;
+                            }
+                            case "cool-grey-inverse": {
+                                invert = true;
+                                foregroundColor = "#E0E0FF";
+                                backgroundColor = "#000020";
+                                break;
+                            }
+                        }
+                        var settings = new Settings(_this.width, _this.height, _this.lineThickness.value, _this.cellScale.value, _this.minCellSize.value, invert, foregroundColor, backgroundColor);
+                        Render(ctx, sampler, settings);
+                        _this.targetCanvas.nativeElement.style.display = "block";
+                        _this.workingGif.nativeElement.style.display = "none";
+                    }, 100);
                 };
                 AppComponent.prototype.onRegenerateClicked = function () {
                     this.generateImage();
+                };
+                AppComponent.prototype.onChoosePicClicked = function () {
+                    this.chooseFileInput.nativeElement.click();
                 };
                 AppComponent.prototype.onToggleSideNav = function () {
                     this.opened = !this.opened;
@@ -705,6 +756,12 @@
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('myCanvas', { static: true })
             ], AppComponent.prototype, "targetCanvas", void 0);
             tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('workingGif', { static: true })
+            ], AppComponent.prototype, "workingGif", void 0);
+            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('chooseFileInput', { static: true })
+            ], AppComponent.prototype, "chooseFileInput", void 0);
+            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('outputImageWidth', { static: false })
             ], AppComponent.prototype, "outputImageWidth", void 0);
             tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -716,9 +773,6 @@
             tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('lineThickness', { static: false })
             ], AppComponent.prototype, "lineThickness", void 0);
-            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('invertBackground', { static: false })
-            ], AppComponent.prototype, "invertBackground", void 0);
             AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-root',
