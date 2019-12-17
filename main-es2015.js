@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("  <mat-sidenav-container class=\"example-container\" >\n  <mat-sidenav #sidenav mode=\"side\" [(opened)]=\"opened\" (opened)=\"events.push('open!')\"\n                (closed)=\"events.push('close!')\">\n  <div class=\"margin-div\">\n     <p> <mat-form-field class=\"example-full-width\">\n          <input matInput placeholder=\"Output Image Width\" value=\"1000\" #outputImageWidth>\n        </mat-form-field>\n    </p>\n    <p>\n      <mat-form-field #colorScheme>\n        <mat-label>Color Scheme</mat-label>\n        <select matNativeControl [(ngModel)]=\"selectedColorScheme\">\n          <option value=\"black-white\">Black on White</option>\n          <option value=\"white-black\">White on Black</option>\n          <option value=\"sepia\">Sepia</option>\n          <option value=\"sepia-inverse\">Sepia Inverse</option>\n          <option value=\"cool-grey\">Cool Grey</option>\n          <option value=\"cool-grey-inverse\">Cool Grey Inverse</option>\n        </select>\n      </mat-form-field>      \n    </p>\n  <p>\n        <mat-slider #lineThickness min=\"1\" max=\"20\" step=\"1\" value=\"3\"></mat-slider>Line Thickness\n    </p>\n    <p>\n      Min Cell Size: <mat-slider #minCellSize min=\"3\" max=\"100\" step=\"1\" value=\"3\"></mat-slider>\n    </p>\n    <p>\n        Cell Scale: <mat-slider #cellScale min=\"-8\" max=\"8\" step=\"1\" value=\"-3\"></mat-slider>\n    </p>\n    <p>\n        <button mat-raised-button color=\"primary\" (click)=\"onRegenerateClicked()\">Regenerate</button>\n    </p>\n    <p>\n      <button mat-raised-button color=\"primary\" (click)=\"onChoosePicClicked()\">Choose Picture...</button>\n  </p>\n  <p>\n      <input #chooseFileInput style=\"display:none\" type=\"file\" accept=\"image/png, image/jpeg\" (change)=\"onImageChange($event)\">\n    </p>\n    </div>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <img #workingGif style=\"display:none\" src=\"./assets/images/working2.gif\">\n    <canvas #myCanvas width=\"1000\" height=\"1000\" (click)=\"onToggleSideNav()\"></canvas>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("  <mat-sidenav-container class=\"example-container\" >\n  <mat-sidenav #sidenav mode=\"side\" [(opened)]=\"opened\" (opened)=\"events.push('open!')\"\n                (closed)=\"events.push('close!')\">\n  <div class=\"margin-div\">\n     <p> <mat-form-field class=\"example-full-width\">\n          <input matInput placeholder=\"Output Image Width\" value=\"1000\" #outputImageWidth>\n        </mat-form-field>\n    </p>\n    <p>\n      <mat-form-field #colorScheme>\n        <mat-label>Color Scheme</mat-label>\n        <select matNativeControl [(ngModel)]=\"selectedColorScheme\">\n          <option value=\"black-white\">Black on White</option>\n          <option value=\"white-black\">White on Black</option>\n          <option value=\"sepia\">Sepia</option>\n          <option value=\"sepia-inverse\">Sepia Inverse</option>\n          <option value=\"cool-grey\">Cool Grey</option>\n          <option value=\"cool-grey-inverse\">Cool Grey Inverse</option>\n        </select>\n      </mat-form-field>      \n    </p>\n    <p>\n        Line Thickness: <mat-slider #lineThickness min=\"1\" max=\"20\" step=\"1\" value=\"3\"></mat-slider>\n    </p>\n    <p>\n      Min Cell Size: <mat-slider #minCellSize min=\"3\" max=\"100\" step=\"1\" value=\"3\"></mat-slider>\n    </p>\n    <p>\n        Cell Scale: <mat-slider #cellScale min=\"-8\" max=\"8\" step=\"1\" value=\"-3\"></mat-slider>\n    </p>\n    <p>\n      <button mat-raised-button color=\"primary\" (click)=\"onRegenerateClicked()\">Regenerate</button>\n    </p>\n    <mat-divider></mat-divider>\n    <p>\n      <mat-form-field #stockImages >\n        <mat-label>Stock Images</mat-label>\n        <select matNativeControl [(ngModel)]=\"selectedStockImage\" (change) = \"onStockImagePicked()\" >\n          <option value=\"natalie-1024.jpg\">Natalie</option>\n          <option value=\"eiffel-tower.jpg\">Eiffel Tower</option>\n          <option value=\"apple-1024.jpg\">Apple</option>\n          <option value=\"face.jpg\">Brunette</option>\n          <option value=\"greyscale-blonde.jpg\">Blonde</option>\n          <option value=\"greyscale-rose-2.jpg\">Rose</option>\n        </select>\n      </mat-form-field>      \n    </p>\n    <p>\n      <button mat-raised-button color=\"primary\" (click)=\"onChoosePicClicked()\">Choose Image...</button>\n    </p>\n    <p>\n      <canvas #sourceCanvas width=\"250\" height=\"250\"></canvas>\n    </p>\n    <p>\n      <input #chooseFileInput style=\"display:none\" type=\"file\" accept=\"image/png, image/jpeg\" (change)=\"onImageChange($event)\">\n    </p>\n    <mat-divider></mat-divider>\n    <p>\n      <button mat-raised-button color=\"primary\" (click)=\"onCloseSettings()\">&lt;&lt; Close</button>\n    </p>\n    </div>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <img #workingGif style=\"display:none\" src=\"./assets/images/working2.gif\">\n    <canvas #myCanvas width=\"1000\" height=\"1000\" (click)=\"onToggleSideNav()\"></canvas>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n\n\n");
 
 /***/ }),
 
@@ -590,12 +590,14 @@ function Render(ctx, sampler, settings) {
 let AppComponent = class AppComponent {
     constructor() {
         this.title = 'splinter';
+        this.opened = true;
         this.events = [];
         this.width = 1000;
         this.height = 1000;
         this.image = new Image;
         this.Regenerate = "Regenerate";
         this.selectedColorScheme = "black-white";
+        this.selectedStockImage = "natalie-1024.jpg";
     }
     generateImage() {
         this.targetCanvas.nativeElement.style.display = "none";
@@ -668,7 +670,30 @@ let AppComponent = class AppComponent {
     onToggleSideNav() {
         this.opened = !this.opened;
     }
+    onCloseSettings() {
+        this.onToggleSideNav();
+    }
+    updateSourceCanvas() {
+        let context = this.sourceCanvas.nativeElement.getContext('2d');
+        context.fillStyle = White;
+        context.fillRect(0, 0, this.sourceCanvas.nativeElement.width, this.sourceCanvas.nativeElement.height);
+        let imageWidth = this.image.width;
+        let imageHeight = this.image.height;
+        let displayWidth = this.sourceCanvas.nativeElement.width;
+        let displayHeight = this.sourceCanvas.nativeElement.height;
+        let destWidth = displayHeight;
+        let destHeight = displayHeight;
+        if (imageWidth > imageHeight) {
+            destHeight = (imageHeight / imageWidth) * displayHeight;
+            context.drawImage(this.image, 0, 0, imageWidth, imageHeight, 0, 0, destWidth, destHeight);
+        }
+        else {
+            destWidth = (imageWidth / imageHeight) * displayWidth;
+            context.drawImage(this.image, 0, 0, imageWidth, imageHeight, (displayWidth - destWidth) / 2, 0, destWidth, destHeight);
+        }
+    }
     onImageChange(event) {
+        this.selectedStockImage = undefined;
         var reader = new FileReader();
         let imagePath = event.target.files;
         reader.readAsDataURL(imagePath[0]);
@@ -677,19 +702,26 @@ let AppComponent = class AppComponent {
             this.image.src = this.imgURL;
         };
     }
+    onStockImagePicked(event) {
+        this.image.src = "/assets/images/" + this.selectedStockImage;
+    }
     ngOnInit() {
         let canvas = this.targetCanvas;
         canvas.nativeElement.width = this.width;
         canvas.nativeElement.height = this.height;
         this.image.onload = function () {
+            this.updateSourceCanvas();
             this.generateImage();
         }.bind(this);
-        this.image.src = "/assets/images/natalie.jpg";
+        this.image.src = "/assets/images/" + this.selectedStockImage;
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('myCanvas', { static: true })
 ], AppComponent.prototype, "targetCanvas", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('sourceCanvas', { static: true })
+], AppComponent.prototype, "sourceCanvas", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('workingGif', { static: true })
 ], AppComponent.prototype, "workingGif", void 0);
@@ -708,6 +740,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('lineThickness', { static: false })
 ], AppComponent.prototype, "lineThickness", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('stockImages', { static: false })
+], AppComponent.prototype, "stockImages", void 0);
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
